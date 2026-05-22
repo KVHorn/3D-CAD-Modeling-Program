@@ -1,2 +1,2 @@
 # 3D-CAD-Modeling-Program
-A program for creating models to 3-D print
+A program for creating object models to 3-D print
