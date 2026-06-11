@@ -1,0 +1,24 @@
+^C:\DEV\3D-CAD-MODELING-PROGRAM\BUILD\CMAKEFILES\41742A2891DBA60C8431B73C0ED56F05\QRC_RESOURCES_(CONFIG).CPP.RULE
+setlocal
+cd C:\dev\3D-CAD-Modeling-Program\build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_autorcc C:/dev/3D-CAD-Modeling-Program/build/CMakeFiles/CADModeler_autogen.dir/AutoRcc_resources_3YJK5W5UP7_Info.json Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\DEV\3D-CAD-MODELING-PROGRAM\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev/3D-CAD-Modeling-Program -BC:/dev/3D-CAD-Modeling-Program/build --check-stamp-file C:/dev/3D-CAD-Modeling-Program/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

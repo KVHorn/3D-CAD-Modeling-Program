@@ -1,0 +1,10 @@
+^C:\DEV\3D-CAD-MODELING-PROGRAM\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/dev/3D-CAD-Modeling-Program -BC:/dev/3D-CAD-Modeling-Program/build --check-stamp-file C:/dev/3D-CAD-Modeling-Program/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
