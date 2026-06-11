@@ -18,10 +18,10 @@ int main(int argc, char *argv[])
     // Build a 50 x 30 x 10 box by extruding a rectangle, then write it to STL.
     // Proves the whole pipeline: OCCT solid -> tessellate -> printable file.
     TopoDS_Shape solid = Geometry::extrudeRectangle(50.0, 30.0, 10.0);
-    bool ok = Geometry::exportStl(solid, "infinity_test_box.stl");
+    bool ok = Geometry::exportStl(solid, "output/infinity_test_box.stl");
 
     QMessageBox::information(&window, "Tracer Bullet",
-                             ok ? "Exported a 50x30x10 box to infinity_test_box.stl\nOpen it in your slicer!"
+                             ok ? "Exported a 50x30x10 box to output/infinity_test_box.stl\nOpen it in your slicer!"
                                 : "STL export failed.");
     // ---------------------------------------------------------------------
 
