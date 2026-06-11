@@ -1,0 +1,13 @@
+# Build output
+build/
+
+# Generated exports
+output/
+*.stl
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+Desktop.ini

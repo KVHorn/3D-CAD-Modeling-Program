@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     createMenus();
     createToolBar();
-    createStatusBar(); 
+    createStatusBar();
 }
 
 void MainWindow::createMenus()
