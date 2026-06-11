@@ -1,11 +1,10 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.21...4.3)
 project(CADModeler LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
 
 # Qt — installed via the Qt online installer; path comes from CMakePresets.json
@@ -18,6 +17,8 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/MainWindow.cpp
     src/MainWindow.h
+    resources/app.rc
+    resources/resources.qrc
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
@@ -37,11 +38,3 @@ if (WIN32)
         COMMENT "Deploying Qt runtime with windeployqt"
     )
 endif()
-
-add_executable(${PROJECT_NAME}
-    src/main.cpp
-    src/MainWindow.cpp
-    src/MainWindow.h
-    resources/app.rc            # Windows .exe icon (Explorer)
-    resources/resources.qrc     # Qt resource -> window/taskbar icon
-)
