@@ -37,3 +37,11 @@ if (WIN32)
         COMMENT "Deploying Qt runtime with windeployqt"
     )
 endif()
+
+add_executable(${PROJECT_NAME}
+    src/main.cpp
+    src/MainWindow.cpp
+    src/MainWindow.h
+    resources/app.rc            # Windows .exe icon (Explorer)
+    resources/resources.qrc     # Qt resource -> window/taskbar icon
+)

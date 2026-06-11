@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>infinity_creator.ico</file>
+    </qresource>
+</RCC>
