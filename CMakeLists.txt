@@ -17,6 +17,8 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
     src/MainWindow.cpp
     src/MainWindow.h
+    src/Geometry.cpp          # new — geometry layer
+    src/Geometry.h            # new
     resources/app.rc
     resources/resources.qrc
 )
@@ -38,3 +40,4 @@ if (WIN32)
         COMMENT "Deploying Qt runtime with windeployqt"
     )
 endif()
+
