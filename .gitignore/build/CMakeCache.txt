@@ -521,12 +521,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_WrapAtomic:INTERNAL=[1][v()]
 FIND_PACKAGE_MESSAGE_DETAILS_WrapVulkanHeaders:INTERNAL=[C:/VulkanSDK/1.4.341.1/include][v()]
 //Details about finding ZLIB
 FIND_PACKAGE_MESSAGE_DETAILS_ZLIB:INTERNAL=[optimized;C:/vcpkg/installed/x64-windows/lib/zlib.lib;debug;C:/vcpkg/installed/x64-windows/debug/lib/zlibd.lib][C:/vcpkg/installed/x64-windows/include][ ][v1.3.1()]
-//ADVANCED property for variable: FREETYPE_LIBRARY_DEBUG
-FREETYPE_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //vcpkg
 FREETYPE_LIBRARY_DEBUG:INTERNAL=C:/vcpkg/installed/x64-windows/debug/lib/freetyped.lib
-//ADVANCED property for variable: FREETYPE_LIBRARY_RELEASE
-FREETYPE_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //vcpkg
 FREETYPE_LIBRARY_RELEASE:INTERNAL=C:/vcpkg/installed/x64-windows/lib/freetype.lib
 //Test HAVE_STDATOMIC
