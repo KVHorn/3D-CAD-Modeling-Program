@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "RelWithDebInfo/CADModeler.exe"
+			"path" : "MinSizeRel/CADModeler.exe"
 		},
 		{
-			"path" : "RelWithDebInfo/CADModeler.pdb"
+			"path" : "MinSizeRel/CADModeler.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -61,7 +61,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 28,
+				"line" : 30,
 				"parent" : 0
 			},
 			{
@@ -225,7 +225,7 @@
 			{
 				"command" : 11,
 				"file" : 1,
-				"line" : 24,
+				"line" : 26,
 				"parent" : 0
 			}
 		]
@@ -444,7 +444,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -std:c++17 -MD -Zi"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O1 /Ob1 /DNDEBUG -std:c++17 -MD"
 				},
 				{
 					"backtrace" : 3,
@@ -512,7 +512,7 @@
 				{
 					"backtrace" : 0,
 					"isSystem" : true,
-					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_RelWithDebInfo"
+					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_MinSizeRel"
 				},
 				{
 					"backtrace" : 3,
@@ -565,7 +565,8 @@
 				0,
 				1,
 				2,
-				6
+				4,
+				8
 			]
 		},
 		{
@@ -628,7 +629,7 @@
 				{
 					"backtrace" : 0,
 					"isSystem" : true,
-					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_RelWithDebInfo"
+					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_MinSizeRel"
 				},
 				{
 					"backtrace" : 3,
@@ -669,7 +670,7 @@
 			"language" : "RC",
 			"sourceIndexes" : 
 			[
-				4
+				6
 			]
 		}
 	],
@@ -685,11 +686,11 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -MD -Zi",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O1 /Ob1 /DNDEBUG -MD",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "/debug /INCREMENTAL",
+				"fragment" : "/INCREMENTAL:NO",
 				"role" : "flags"
 			},
 			{
@@ -1227,28 +1228,30 @@
 				1,
 				2,
 				4,
-				6
+				6,
+				8
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				3
+				3,
+				5
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				5
+				7
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				7
+				9
 			]
 		}
 	],
@@ -1258,7 +1261,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/CADModeler_autogen/mocs_compilation_RelWithDebInfo.cpp",
+			"path" : "build/CADModeler_autogen/mocs_compilation_MinSizeRel.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -1280,6 +1283,17 @@
 		},
 		{
 			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/Geometry.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/Geometry.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
 			"compileGroupIndex" : 1,
 			"path" : "resources/app.rc",
 			"sourceGroupIndex" : 0
@@ -1293,7 +1307,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/CADModeler_autogen/3YJK5W5UP7/qrc_resources_RelWithDebInfo.cpp",
+			"path" : "build/CADModeler_autogen/3YJK5W5UP7/qrc_resources_MinSizeRel.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{

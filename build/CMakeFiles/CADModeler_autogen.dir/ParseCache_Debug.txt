@@ -156,5 +156,7 @@ C:/dev/3D-CAD-Modeling-Program/src/MainWindow.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qtwidgetsglobal.h
  mdp:C:/Qt/6.8.3/msvc2022_64/include/QtWidgets/qwidget.h
  mdp:C:/dev/3D-CAD-Modeling-Program/src/MainWindow.h
-C:/dev/3D-CAD-Modeling-Program/src/main.cpp
 C:/dev/3D-CAD-Modeling-Program/src/MainWindow.cpp
+C:/dev/3D-CAD-Modeling-Program/src/main.cpp
+C:/dev/3D-CAD-Modeling-Program/src/Geometry.h
+C:/dev/3D-CAD-Modeling-Program/src/Geometry.cpp

@@ -1,5 +1,4 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QMainWindow>
 
@@ -9,6 +8,10 @@ class MainWindow : public QMainWindow
 
 public:
   explicit MainWindow(QWidget *parent = nullptr);
-  ~MainWindow();
+  ~MainWindow() override = default;
+
+private:
+  void createMenus();
+  void createToolBar();
+  void createStatusBar();
 };
-#endif // MAINWINDOW_H

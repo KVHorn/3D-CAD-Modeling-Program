@@ -311,13 +311,28 @@
 		"C:/vcpkg/installed/x64-windows/share/opencascade/OpenCASCADEApplicationFrameworkTargets-release.cmake",
 		"C:/vcpkg/installed/x64-windows/share/opencascade/OpenCASCADEDataExchangeTargets.cmake",
 		"C:/vcpkg/installed/x64-windows/share/opencascade/OpenCASCADEDataExchangeTargets-debug.cmake",
-		"C:/vcpkg/installed/x64-windows/share/opencascade/OpenCASCADEDataExchangeTargets-release.cmake"
+		"C:/vcpkg/installed/x64-windows/share/opencascade/OpenCASCADEDataExchangeTargets-release.cmake",
+		"C:/dev/3D-CAD-Modeling-Program/resources/resources.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/dev/3D-CAD-Modeling-Program",
 	"CROSS_CONFIG" : false,
 	"DEP_FILE" : "",
 	"DEP_FILE_RULE_NAME" : "",
-	"HEADERS" : [],
+	"HEADERS" : 
+	[
+		[
+			"C:/dev/3D-CAD-Modeling-Program/src/Geometry.h",
+			"Mu",
+			"UVLADIE3JM/moc_Geometry.cpp",
+			null
+		],
+		[
+			"C:/dev/3D-CAD-Modeling-Program/src/MainWindow.h",
+			"Mu",
+			"UVLADIE3JM/moc_MainWindow.cpp",
+			null
+		]
+	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include",
 	"INCLUDE_DIR_Debug" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_Debug",
@@ -476,7 +491,12 @@
 	"SETTINGS_FILE_MinSizeRel" : "C:/dev/3D-CAD-Modeling-Program/build/CMakeFiles/CADModeler_autogen.dir/AutogenUsed_MinSizeRel.txt",
 	"SETTINGS_FILE_RelWithDebInfo" : "C:/dev/3D-CAD-Modeling-Program/build/CMakeFiles/CADModeler_autogen.dir/AutogenUsed_RelWithDebInfo.txt",
 	"SETTINGS_FILE_Release" : "C:/dev/3D-CAD-Modeling-Program/build/CMakeFiles/CADModeler_autogen.dir/AutogenUsed_Release.txt",
-	"SOURCES" : [],
+	"SOURCES" : 
+	[
+		[ "C:/dev/3D-CAD-Modeling-Program/src/Geometry.cpp", "Mu", null ],
+		[ "C:/dev/3D-CAD-Modeling-Program/src/MainWindow.cpp", "Mu", null ],
+		[ "C:/dev/3D-CAD-Modeling-Program/src/main.cpp", "Mu", null ]
+	],
 	"USE_BETTER_GRAPH" : true,
 	"VERBOSITY" : 0
 }

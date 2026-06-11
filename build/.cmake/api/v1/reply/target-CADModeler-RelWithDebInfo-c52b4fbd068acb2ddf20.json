@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Debug/CADModeler.exe"
+			"path" : "RelWithDebInfo/CADModeler.exe"
 		},
 		{
-			"path" : "Debug/CADModeler.pdb"
+			"path" : "RelWithDebInfo/CADModeler.pdb"
 		}
 	],
 	"backtrace" : 2,
@@ -24,7 +24,6 @@
 			"find_dependency",
 			"_qt_internal_find_qt_dependencies",
 			"add_custom_command",
-			"set_property",
 			"target_include_directories"
 		],
 		"files" : 
@@ -40,9 +39,7 @@
 			"C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
 			"C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
 			"C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Gui/Qt6GuiTargets.cmake",
-			"C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"C:/vcpkg/installed/x64-windows/share/opencascade/OpenCASCADECompileDefinitionsAndFlags-debug.cmake",
-			"C:/vcpkg/installed/x64-windows/share/opencascade/OpenCASCADEConfig.cmake"
+			"C:/Qt/6.8.3/msvc2022_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake"
 		],
 		"nodes" : 
 		[
@@ -64,7 +61,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 28,
+				"line" : 30,
 				"parent" : 0
 			},
 			{
@@ -226,71 +223,9 @@
 				"parent" : 1
 			},
 			{
-				"command" : 6,
+				"command" : 11,
 				"file" : 1,
-				"line" : 14,
-				"parent" : 0
-			},
-			{
-				"command" : 5,
-				"file" : 0,
-				"line" : 908,
-				"parent" : 33
-			},
-			{
-				"file" : 13,
-				"parent" : 34
-			},
-			{
-				"command" : 4,
-				"file" : 13,
-				"line" : 105,
-				"parent" : 35
-			},
-			{
-				"file" : 12,
-				"parent" : 36
-			},
-			{
-				"command" : 11,
-				"file" : 12,
-				"line" : 16,
-				"parent" : 37
-			},
-			{
-				"command" : 11,
-				"file" : 12,
-				"line" : 17,
-				"parent" : 37
-			},
-			{
-				"command" : 11,
-				"file" : 12,
-				"line" : 14,
-				"parent" : 37
-			},
-			{
-				"command" : 11,
-				"file" : 12,
-				"line" : 19,
-				"parent" : 37
-			},
-			{
-				"command" : 11,
-				"file" : 12,
-				"line" : 18,
-				"parent" : 37
-			},
-			{
-				"command" : 11,
-				"file" : 12,
-				"line" : 15,
-				"parent" : 37
-			},
-			{
-				"command" : 12,
-				"file" : 1,
-				"line" : 24,
+				"line" : 26,
 				"parent" : 0
 			}
 		]
@@ -509,7 +444,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od -std:c++17 -MDd -RTC1 -Zi"
+					"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -std:c++17 -MD -Zi"
 				},
 				{
 					"backtrace" : 3,
@@ -527,14 +462,6 @@
 			"defines" : 
 			[
 				{
-					"backtrace" : 38,
-					"define" : "HAVE_FREETYPE"
-				},
-				{
-					"backtrace" : 39,
-					"define" : "HAVE_OPENGL_EXT"
-				},
-				{
 					"backtrace" : 3,
 					"define" : "QT_CORE_LIB"
 				},
@@ -544,10 +471,14 @@
 				},
 				{
 					"backtrace" : 3,
+					"define" : "QT_NO_DEBUG"
+				},
+				{
+					"backtrace" : 3,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
-					"backtrace" : 40,
+					"backtrace" : 3,
 					"define" : "UNICODE"
 				},
 				{
@@ -559,19 +490,11 @@
 					"define" : "WIN64"
 				},
 				{
-					"backtrace" : 41,
-					"define" : "_CRT_NONSTDC_NO_DEPRECATE"
-				},
-				{
-					"backtrace" : 42,
-					"define" : "_CRT_SECURE_NO_WARNINGS"
-				},
-				{
 					"backtrace" : 3,
 					"define" : "_ENABLE_EXTENDED_ALIGNED_STORAGE"
 				},
 				{
-					"backtrace" : 43,
+					"backtrace" : 3,
 					"define" : "_UNICODE"
 				},
 				{
@@ -582,14 +505,14 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 44,
+					"backtrace" : 33,
 					"isSystem" : true,
 					"path" : "C:/vcpkg/installed/x64-windows/include/opencascade"
 				},
 				{
 					"backtrace" : 0,
 					"isSystem" : true,
-					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_Debug"
+					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_RelWithDebInfo"
 				},
 				{
 					"backtrace" : 3,
@@ -642,26 +565,19 @@
 				0,
 				1,
 				2,
-				6
+				4,
+				8
 			]
 		},
 		{
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-DWIN32 -D_DEBUG"
+					"fragment" : "-DWIN32"
 				}
 			],
 			"defines" : 
 			[
-				{
-					"backtrace" : 38,
-					"define" : "HAVE_FREETYPE"
-				},
-				{
-					"backtrace" : 39,
-					"define" : "HAVE_OPENGL_EXT"
-				},
 				{
 					"backtrace" : 3,
 					"define" : "QT_CORE_LIB"
@@ -672,10 +588,14 @@
 				},
 				{
 					"backtrace" : 3,
+					"define" : "QT_NO_DEBUG"
+				},
+				{
+					"backtrace" : 3,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
-					"backtrace" : 40,
+					"backtrace" : 3,
 					"define" : "UNICODE"
 				},
 				{
@@ -687,19 +607,11 @@
 					"define" : "WIN64"
 				},
 				{
-					"backtrace" : 41,
-					"define" : "_CRT_NONSTDC_NO_DEPRECATE"
-				},
-				{
-					"backtrace" : 42,
-					"define" : "_CRT_SECURE_NO_WARNINGS"
-				},
-				{
 					"backtrace" : 3,
 					"define" : "_ENABLE_EXTENDED_ALIGNED_STORAGE"
 				},
 				{
-					"backtrace" : 43,
+					"backtrace" : 3,
 					"define" : "_UNICODE"
 				},
 				{
@@ -710,14 +622,14 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 44,
+					"backtrace" : 33,
 					"isSystem" : true,
 					"path" : "C:/vcpkg/installed/x64-windows/include/opencascade"
 				},
 				{
 					"backtrace" : 0,
 					"isSystem" : true,
-					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_Debug"
+					"path" : "C:/dev/3D-CAD-Modeling-Program/build/CADModeler_autogen/include_RelWithDebInfo"
 				},
 				{
 					"backtrace" : 3,
@@ -758,7 +670,7 @@
 			"language" : "RC",
 			"sourceIndexes" : 
 			[
-				4
+				6
 			]
 		}
 	],
@@ -774,7 +686,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /Ob0 /Od -MDd -RTC1 -Zi",
+				"fragment" : "/DWIN32 /D_WINDOWS /EHsc /O2 /Ob1 /DNDEBUG -MD -Zi",
 				"role" : "flags"
 			},
 			{
@@ -787,262 +699,262 @@
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\Qt\\6.8.3\\msvc2022_64\\lib\\Qt6Widgetsd.lib",
+				"fragment" : "C:\\Qt\\6.8.3\\msvc2022_64\\lib\\Qt6Widgets.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKernel.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKernel.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKMath.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKMath.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKG2d.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKG2d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKG3d.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKG3d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKGeomBase.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKGeomBase.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKBRep.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKBRep.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKGeomAlgo.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKGeomAlgo.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKTopAlgo.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKTopAlgo.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKPrim.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKPrim.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKBO.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKBO.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKShHealing.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKShHealing.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKBool.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKBool.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKHLR.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKHLR.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKFillet.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKFillet.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKOffset.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKOffset.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKFeat.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKFeat.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKMesh.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKMesh.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKXMesh.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKXMesh.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKService.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKService.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKV3d.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKV3d.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKOpenGl.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKOpenGl.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKMeshVS.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKMeshVS.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKCDF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKCDF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKLCAF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKLCAF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKCAF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKCAF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKBinL.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKBinL.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKXmlL.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKXmlL.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKBin.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKBin.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKXml.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKXml.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKStdL.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKStdL.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKStd.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKStd.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKTObj.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKTObj.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKBinTObj.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKBinTObj.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKXmlTObj.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKXmlTObj.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKVCAF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKVCAF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDE.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDE.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKXSBase.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKXSBase.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDESTEP.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDESTEP.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKXCAF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKXCAF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDEIGES.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDEIGES.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDESTL.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDESTL.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDEVRML.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDEVRML.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKRWMesh.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKRWMesh.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDECascade.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDECascade.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKBinXCAF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKBinXCAF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKXmlXCAF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKXmlXCAF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDEOBJ.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDEOBJ.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDEGLTF.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDEGLTF.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\debug\\lib\\TKDEPLY.lib",
+				"fragment" : "C:\\vcpkg\\installed\\x64-windows\\lib\\TKDEPLY.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 12,
-				"fragment" : "C:\\Qt\\6.8.3\\msvc2022_64\\lib\\Qt6Guid.lib",
+				"fragment" : "C:\\Qt\\6.8.3\\msvc2022_64\\lib\\Qt6Gui.lib",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 12,
-				"fragment" : "C:\\Qt\\6.8.3\\msvc2022_64\\lib\\Qt6Cored.lib",
+				"fragment" : "C:\\Qt\\6.8.3\\msvc2022_64\\lib\\Qt6Core.lib",
 				"role" : "libraries"
 			},
 			{
@@ -1316,28 +1228,30 @@
 				1,
 				2,
 				4,
-				6
+				6,
+				8
 			]
 		},
 		{
 			"name" : "Header Files",
 			"sourceIndexes" : 
 			[
-				3
+				3,
+				5
 			]
 		},
 		{
 			"name" : "",
 			"sourceIndexes" : 
 			[
-				5
+				7
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				7
+				9
 			]
 		}
 	],
@@ -1347,7 +1261,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/CADModeler_autogen/mocs_compilation_Debug.cpp",
+			"path" : "build/CADModeler_autogen/mocs_compilation_RelWithDebInfo.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
@@ -1369,6 +1283,17 @@
 		},
 		{
 			"backtrace" : 2,
+			"compileGroupIndex" : 0,
+			"path" : "src/Geometry.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 2,
+			"path" : "src/Geometry.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 2,
 			"compileGroupIndex" : 1,
 			"path" : "resources/app.rc",
 			"sourceGroupIndex" : 0
@@ -1382,7 +1307,7 @@
 			"backtrace" : 0,
 			"compileGroupIndex" : 0,
 			"isGenerated" : true,
-			"path" : "build/CADModeler_autogen/3YJK5W5UP7/qrc_resources_Debug.cpp",
+			"path" : "build/CADModeler_autogen/3YJK5W5UP7/qrc_resources_RelWithDebInfo.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
