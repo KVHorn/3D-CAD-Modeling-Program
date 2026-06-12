@@ -5,6 +5,10 @@ build/
 output/
 *.stl
 
+# Notes and Documentation
+documentation/
+*.pdf
+
 # VS Code
 .vscode/
 
