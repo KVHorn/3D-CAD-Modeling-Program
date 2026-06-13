@@ -1,17 +1,16 @@
 #include "OcctViewport.h"
-
 #include <QPalette>
 #include <QColor>
 
 OcctViewport::OcctViewport(QWidget *parent)
     : QWidget(parent)
 {
-    // Temporary: a visible background so we can confirm the widget is wired in.
-    // This goes away in Step 2, once OCCT takes over drawing the surface.
+    // This is the viewport for displaying the workspace and the sketches, shapes, models, etc. that the user will be working with.
+
     setAutoFillBackground(true);
 
     QPalette pal = palette();
-    pal.setColor(QPalette::Window, QColor(255, 255, 255)); // charcoal #2b2b2b
+    pal.setColor(QPalette::Window, QColor(0, 25, 85)); // charcoal rgb(0, 24, 83)
     setPalette(pal);
 
     setMinimumSize(400, 300);
