@@ -21,6 +21,7 @@ add_executable(${PROJECT_NAME}
     src/Geometry.h            # new
     resources/app.rc
     resources/resources.qrc
+    src/OcctViewport.cpp
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE

@@ -63,11 +63,10 @@ void MainWindow::createMenus()
 
 void MainWindow::createToolBar()
 {
-    QGroupBox *groupBox = new QGroupBox();
+    // QGroupBox *groupBox = new QGroupBox();
 
     QToolBar *toolBar = addToolBar("Main");
     toolBar->addAction("New Sketch");
-    toolBar->addAction("Extrude");
 }
 
 void MainWindow::createStatusBar()
