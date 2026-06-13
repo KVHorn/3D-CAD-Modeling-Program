@@ -1,18 +1,26 @@
 #include <QApplication>
 #include <QIcon>
+#include <QActionEvent>
 #include <QMessageBox>
 #include "MainWindow.h"
 #include "Geometry.h"
 
+
 int main(int argc, char *argv[])
 {
-    QApplication app(argc, argv);
+    /*
+    QApplication app(argc, argv)
+    Enters the main event loop and waits until exit() is called, then returns the value that was set to exit(), which is 0 if exit is called via quit().
+    */
+    QApplication app(argc, argv); 
     app.setApplicationName("Infinity Creator");
     app.setWindowIcon(QIcon(":/infinity_creator.ico"));
 
     MainWindow window;
     window.setWindowTitle("Infinity Creator");
     window.show();
+
+
 
     // --- TRACER BULLET ---------------------------------------------------
     // Build a 50 x 30 x 10 box by extruding a rectangle, then write it to STL.
