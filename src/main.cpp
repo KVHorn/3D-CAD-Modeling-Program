@@ -3,6 +3,8 @@
 #include <QActionEvent>
 #include <QMessageBox>
 #include "MainWindow.h"
+#include "OcctViewport.h"
+
 #include "Geometry.h"
 
 
@@ -13,12 +15,14 @@ int main(int argc, char *argv[])
     Enters the main event loop and waits until exit() is called, then returns the value that was set to exit(), which is 0 if exit is called via quit().
     */
     QApplication app(argc, argv); 
-    app.setApplicationName("Infinity Creator");
+    app.setApplicationName("Infinity Creator TEST");
     app.setWindowIcon(QIcon(":/infinity_creator.ico"));
 
     MainWindow window;
-    window.setWindowTitle("Infinity Creator");
+    window.setWindowTitle("Infinity Creator TEST");
     window.show();
+
+    
 
 
 

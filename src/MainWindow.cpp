@@ -1,9 +1,14 @@
 #include "MainWindow.h"
+#include "OcctViewport.h"
+
 
 #include <QMenuBar>
 #include <QMenu>
 #include <QToolBar>
 #include <QStatusBar>
+#include <QGridLayout>
+#include <QGroupBox>
+
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -11,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setWindowTitle("Infinity Creator");
     resize(1200, 800);
+    setCentralWidget(new OcctViewport(this));
 
     createMenus();
     createToolBar();
@@ -19,26 +25,46 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::createMenus()
 {
+    // Create Group Box that contains all of the menu tabs like: file, edit, settings, help, etc.
+    QGroupBox *groupBox = new QGroupBox(tr("Group Box with Layout"));
+
+    //Create the Start menu tab button in the groupbox
     QMenu *fileMenu = menuBar()->addMenu("&File");
-    fileMenu->addAction("&New");
+    fileMenu->addAction("&New...");
+    fileMenu->addAction("&New From...");
     fileMenu->addAction("&Open...");
-    fileMenu->addAction("&Save");
-    fileMenu->addSeparator();
+    fileMenu->addAction("&Close..."); //Used to close the current file, not the entire program.
+    fileMenu->addAction("&Save...");
+    fileMenu->addAction("&Save As...");
     fileMenu->addAction("&Exit", this, &QWidget::close);
 
-    QMenu *sketchMenu = menuBar()->addMenu("&Sketch");
-    sketchMenu->addAction("New Sketch");
+    // Create the Edit menu tab button in the groupbox
+    QMenu *editMenu = menuBar()->addMenu("&Edit");
+    editMenu->addAction("&Undo...");
+    editMenu->addAction("&Redo...");
+    editMenu->addAction("&Settings");
 
-    QMenu *featuresMenu = menuBar()->addMenu("Fea&tures");
-    featuresMenu->addAction("Extrude");
-    featuresMenu->addAction("Pocket");
+    // // Create the Edit menu tab button in the groupbox
+    // QMenu *fileMenu = menuBar()->addMenu("&View");
+    // fileMenu->addAction("&Settings");
 
-    //Create an additional tab, labeled Options. Doing this to test and learn Qt.
-  
+    // // Create the Edit menu tab button in the groupbox
+    // QMenu *fileMenu = menuBar()->addMenu("&Window");
+    // fileMenu->addAction("&View Settings");
+
+    // // Create the Edit menu tab button in the groupbox
+    // QMenu *fileMenu = menuBar()->addMenu("&Help");
+    // fileMenu->addAction("&Settings");
+
+
+
+
 }
 
 void MainWindow::createToolBar()
 {
+    QGroupBox *groupBox = new QGroupBox();
+
     QToolBar *toolBar = addToolBar("Main");
     toolBar->addAction("New Sketch");
     toolBar->addAction("Extrude");
