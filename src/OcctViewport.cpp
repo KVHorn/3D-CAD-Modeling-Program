@@ -11,7 +11,7 @@ OcctViewport::OcctViewport(QWidget *parent)
     setAutoFillBackground(true);
 
     QPalette pal = palette();
-    pal.setColor(QPalette::Window, QColor(43, 43, 43)); // charcoal #2b2b2b
+    pal.setColor(QPalette::Window, QColor(255, 255, 255)); // charcoal #2b2b2b
     setPalette(pal);
 
     setMinimumSize(400, 300);
