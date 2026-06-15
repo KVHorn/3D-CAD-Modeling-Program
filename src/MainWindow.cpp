@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     createMenus(); // conttains file, edit, help, etc.
     sketcherWorkspaceLineDrawingToolBar();
     sketcherWorkspaceCircleToolBar();
-    sketcherWorkspaceDimensionsToolBar();
+    sketcherWorkspacConstraintsToolBar();
     // createToolBar(); // contains the sketcher tools when a sketch is open and the create feature tools when just viewing the body/object in 3D.
     createStatusBar();
 }
@@ -89,15 +89,23 @@ void MainWindow::sketcherWorkspaceCircleToolBar()
     toolBar->addAction("Arc");
 }
 
-void MainWindow::sketcherWorkspaceDimensionsToolBar()
+void MainWindow::sketcherWorkspacConstraintsToolBar()
 {
     /*
     SKETCHER WORKSPACE toolbar
     This widget is a moveable toolbar button that the user can click and drag to different places aroun the screen
     */
     QToolBar *toolBar = addToolBar("Main");
-    toolBar->setWindowTitle("Dimensions");
-    toolBar->addAction("Dimensions");
+    toolBar->setWindowTitle("Constraints");
+    toolBar->addAction("Constraint"); // Defined by dialog box popup.
+    toolBar->addAction("Fix \nTogether");
+    toolBar->addAction("Animate\nConstraint");
+    toolBar->addAction("Edit \nMulti-Constraint");
+    toolBar->addAction("Length");
+    toolBar->addAction("Offset");
+    toolBar->addAction("Radius");
+    toolBar->addAction("Angle");
+    toolBar->addAction("Diam/Rad");
 }
 
 void MainWindow::createStatusBar()

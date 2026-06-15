@@ -16,7 +16,7 @@ private:
   // Sketcher Workspace Toolbars
   void sketcherWorkspaceLineDrawingToolBar();
   void sketcherWorkspaceCircleToolBar();
-  void sketcherWorkspaceDimensionsToolBar();
+  void sketcherWorkspacConstraintsToolBar();
 
   void createStatusBar();
 };

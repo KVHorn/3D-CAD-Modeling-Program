@@ -1,0 +1,144 @@
+Catia Options:
+
+General
+	Display
+	compatibility
+	parameters and measure
+	devices and virtual reality
+
+infrastructure
+	product structure
+	material library
+	catalog editor
+	photo studio
+	real time rendering
+	part infrastructure
+	DELMIA infrastructure
+	3D annotations
+	Collaboration infrastructure
+
+Mechanical Design
+	part design
+	assembly design
+	sketcher
+	mold tooling design
+	structure design
+	2D layout for 3D design
+	Drafting
+	die Face design
+	Composities forming
+	composites design
+	generative sheetmetal design
+	functional tolerancing & annotation
+
+
+Shape
+	freestyyle
+	imagine & shape
+	digitized shape editor
+	generative shape design
+	ICEM Shape design aeroexpert
+	quick surface reconstruction
+	ICEM Shape design
+	Mechanical surface refinement
+	shape sculptor
+
+Analysis & simulation
+AEC Plant
+
+Machining
+	STL Rapid Prototyping
+
+Digital Mockup
+	DMU Space Analysis
+	DMU fitting
+	DMU fastening review
+	DMU optimizer
+	DMU tolerancing review
+
+Equipment & Systems
+	Electrical Cabling Discipline
+		Electrical connectivity diagrams
+		Electrical cableway routing
+		waveguide diagrams
+	Electrical Harness Discipline
+		electrical assemnbly diagram
+		electrical harness installation
+		electrical wiring routing
+		electrical harness flattening
+		electrical 3D design assembly
+	HVAC Discipline
+		HVAC Diagrams
+	Piping Discipline
+		Piping and instrumentation diagrams
+		Piping  design
+	Tubing Discipline
+		Tubing Diagrams
+	Structure Discipline
+		Structure Functional System Diagrams
+		Compartment and Access
+	Circuit Board Design
+
+Digital Process for Manufacturing
+
+Machining Simulation
+	NC Machine Tool Simulation
+
+ergonomics Design & Analysis
+	Human measurements editor
+	Human activity analysis
+	human builder
+	human posture analysis
+
+Knowledgeware
+	Product functional definition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
