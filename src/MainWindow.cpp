@@ -66,10 +66,13 @@ void MainWindow::sketcherWorkspaceLineDrawingToolBar()
     QToolBar *toolBar = addToolBar("Main");
     toolBar->setWindowTitle("Line Creator");
     toolBar->addAction("Line");
-    toolBar->addAction("Infinite Line");
-    toolBar->addAction("Bi-Tangent Line");
-    toolBar->addAction("Bisecting Line");
-    toolBar->addAction("Line Noemal to Curve");
+    toolBar->addAction("Infinite\nLine");
+    toolBar->addSeparator();
+    toolBar->addAction("Bi-Tangent\nLine");
+    toolBar->addSeparator();
+    toolBar->addAction("Bisecting\nLine");
+    toolBar->addSeparator();
+    toolBar->addAction("Line Normal\nto Curve");
 }
 
 void MainWindow::sketcherWorkspaceCircleToolBar()
@@ -81,12 +84,12 @@ void MainWindow::sketcherWorkspaceCircleToolBar()
     QToolBar *toolBar = addToolBar("Main");
     toolBar->setWindowTitle("Circles");
     toolBar->addAction("Circle");
-    toolBar->addAction("Thre-point Circle");
-    toolBar->addAction("Circle using Coords");
-    toolBar->addAction("Tri-Tangent Circle");
-    toolBar->addAction("Three point arc");
-    toolBar->addAction("Three point arc w/starting limits");
     toolBar->addAction("Arc");
+    toolBar->addAction("Three-point\nCircle");
+    toolBar->addAction("Circle\nusing Coords");
+    toolBar->addAction("Tri-tangent\nCircle");
+    toolBar->addAction("Three-point arc");
+    toolBar->addAction("Three-point arc\nw/starting limits");
 }
 
 void MainWindow::sketcherWorkspacConstraintsToolBar()
@@ -98,9 +101,9 @@ void MainWindow::sketcherWorkspacConstraintsToolBar()
     QToolBar *toolBar = addToolBar("Main");
     toolBar->setWindowTitle("Constraints");
     toolBar->addAction("Constraint"); // Defined by dialog box popup.
-    toolBar->addAction("Fix \nTogether");
+    toolBar->addAction("Fix\nTogether");
     toolBar->addAction("Animate\nConstraint");
-    toolBar->addAction("Edit \nMulti-Constraint");
+    toolBar->addAction("Edit\nMulti-Constraint");
     toolBar->addAction("Length");
     toolBar->addAction("Offset");
     toolBar->addAction("Radius");
