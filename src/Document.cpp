@@ -1,6 +1,6 @@
 #include "Document.h"
 
-Document::Document(const QString &name);
+Document::Document(const QString &name)
 {
     // Constructor body - set things up
 }

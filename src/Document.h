@@ -42,7 +42,7 @@ private:
     "= WorkspaceType::PartDesign" means the memebr starts as PartDesign unless teh constructor explicitly sets it otherwise.
     Note: The default "view" or default Workspace will always be the PartDesign Workspace.
     */
-    WorkspaceType m_workspace = WorkspaceType::PartDesign; // This means the initial workspace
+    WorkspaceType m_workspace = WorkspaceType::PartDesign;
 
     /*
     Later: The model data numbers.
