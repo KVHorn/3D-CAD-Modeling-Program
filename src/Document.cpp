@@ -1,21 +1,24 @@
 #include "Document.h"
 
-Document::Document(const QString &name)
+Document::Document(const QString &name) : m_name(name)
 {
-    // Constructor body - set things up
+    /*
+        m_viewport stays nullptr for now — there's no rendering viewport to attach yet.
+        m_workspace defaults to PartDesign (set in the header).
+    */
+}
+
+QString Document::name() const
+{
+    return m_name;
 }
 
 OcctViewport *Document::viewport() const
 {
-    return m_viewport; // The Body: what the function actually does
+    return m_viewport;
 }
 
 WorkspaceType Document::currentWorkspace() const
 {
     return m_workspace;
-}
-
-void Document::setCurrentWorkspace(WorkspaceType type)
-{
-    m_workspace = type;
 }

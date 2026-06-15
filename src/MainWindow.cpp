@@ -15,6 +15,7 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    
     setWindowTitle("Infinity Creator");
     resize(1200, 800);
     setCentralWidget(new OcctViewport(this));
