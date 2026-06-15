@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QWidget>
-#include <QMainWindow>
 
 //The following included files use the .hxx file extensions to match with OpenCASCADE
 #include <V3d_Viewer.hxx>
@@ -19,8 +18,8 @@ public:
     explicit OcctViewport(QWidget* parent = nullptr);
 
 private:
-    Handle(V3d_Viewer) m_viewport;
-    Handle(V3d_View) m_;
+    Handle(V3d_Viewer) ;
+    Handle(V3d_View) ;
     Handle(AIS_InteractiveContext);
     bool m_initialized = false;
 
