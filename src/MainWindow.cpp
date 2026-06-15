@@ -18,14 +18,21 @@ MainWindow::MainWindow(QWidget *parent)
     resize(1200, 800);
     setCentralWidget(new OcctViewport(this));
 
-    createMenus();
-    createToolBar();
+    createMenus();//conttains file, edit, help, etc.
+    createToolBar();//contains the sketcher tools when a sketch is open and the create feature tools when just viewing the body/object in 3D.
     createStatusBar();
 }
 
 void MainWindow::createMenus()
 {
-    // Create Group Box that contains all of the menu tabs like: file, edit, settings, help, etc.
+
+    /*******************************************************************************************
+     * 
+     * Create Group Box that contains all of the menu tabs like: file, edit, settings, help, etc.
+     * 
+     * 
+     * 
+     *******************************************************************************************/
     QGroupBox *groupBox = new QGroupBox(tr("Group Box with Layout"));
 
     //Create the Start menu tab button in the groupbox
@@ -66,6 +73,17 @@ void MainWindow::createToolBar()
     // QGroupBox *groupBox = new QGroupBox();
 
     QToolBar *toolBar = addToolBar("Main");
+    /*******************************************************************************************
+     *
+     *
+     *  Create the toolbar. This will be the groupBox containing different sets of tools based on
+     *      which workbench is currently open.
+     * 
+     * Sketcher workbench:
+     *      - 
+     *
+     *
+     *******************************************************************************************/
     toolBar->addAction("New Sketch");
 }
 
