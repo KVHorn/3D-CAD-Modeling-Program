@@ -1,5 +1,9 @@
 #include "MainWindow.h"
 #include "OcctViewport.h"
+#include "Workspace.h"
+#include "SketcherWorkspace.h"
+#include "PartDesignWorkspace.h"
+
 
 #include <QMenuBar>
 #include <QMenu>
@@ -114,4 +118,12 @@ void MainWindow::sketcherWorkspacConstraintsToolBar()
 void MainWindow::createStatusBar()
 {
     statusBar()->showMessage("Ready");
+}
+
+void MainWindow::setWorkspace(Workspace *ws)
+{
+    if (m_active)
+        m_active->deactivate();
+    m_active = ws;
+    m_active->activate();
 }

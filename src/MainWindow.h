@@ -19,4 +19,5 @@ private:
   void sketcherWorkspacConstraintsToolBar();
 
   void createStatusBar();
+  void setWorkspace();
 };
