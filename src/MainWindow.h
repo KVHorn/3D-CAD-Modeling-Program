@@ -12,6 +12,11 @@ public:
 
 private:
   void createMenus();
-  void createToolBar();
+
+  // Sketcher Workspace Toolbars
+  void sketcherWorkspaceLineDrawingToolBar();
+  void sketcherWorkspaceCircleToolBar();
+  void sketcherWorkspaceDimensionsToolBar();
+
   void createStatusBar();
 };

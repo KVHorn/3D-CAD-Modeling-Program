@@ -15,23 +15,19 @@ MainWindow::MainWindow(QWidget *parent)
     resize(1200, 800);
     setCentralWidget(new OcctViewport(this));
 
-    createMenus();   // conttains file, edit, help, etc.
-    createToolBar(); // contains the sketcher tools when a sketch is open and the create feature tools when just viewing the body/object in 3D.
+    createMenus(); // conttains file, edit, help, etc.
+    sketcherWorkspaceLineDrawingToolBar();
+    sketcherWorkspaceCircleToolBar();
+    sketcherWorkspaceDimensionsToolBar();
+    // createToolBar(); // contains the sketcher tools when a sketch is open and the create feature tools when just viewing the body/object in 3D.
     createStatusBar();
 }
 
 void MainWindow::createMenus()
 {
-
     /*******************************************************************************************
-     *
      * Create Group Box that contains all of the menu tabs like: file, edit, settings, help, etc.
-     *
-     *
-     *
      *******************************************************************************************/
-    QGroupBox *groupBox = new QGroupBox(tr("Group Box with Layout"));
-
     // Create the Start menu tab button in the groupbox
     QMenu *fileMenu = menuBar()->addMenu("&File");
     fileMenu->addAction("&New...");
@@ -61,26 +57,47 @@ void MainWindow::createMenus()
     // fileMenu->addAction("&Settings");
 }
 
-void MainWindow::createToolBar()
+void MainWindow::sketcherWorkspaceLineDrawingToolBar()
 {
-    // QGroupBox *groupBox = new QGroupBox();
-
+    /*
+    SKETCHER WORKSPACE toolbar
+    This widget is a moveable toolbar button that the user can click and drag to different places aroun the screen
+    */
     QToolBar *toolBar = addToolBar("Main");
-    /*******************************************************************************************
-     *
-     * Create the toolbar. This will be the groupBox containing different sets of tools based on
-     *      which workbench is currently open.
-     *
-     * 
-     *
-     *
-     *
-     *
-     *
-     *
-     *
-     *******************************************************************************************/
-    toolBar->addAction("New Sketch");
+    toolBar->setWindowTitle("Line Creator");
+    toolBar->addAction("Line");
+    toolBar->addAction("Infinite Line");
+    toolBar->addAction("Bi-Tangent Line");
+    toolBar->addAction("Bisecting Line");
+    toolBar->addAction("Line Noemal to Curve");
+}
+
+void MainWindow::sketcherWorkspaceCircleToolBar()
+{
+    /*
+    SKETCHER WORKSPACE toolbar
+    This toolbar is for the group of tools under the "Circle" category.
+    */
+    QToolBar *toolBar = addToolBar("Main");
+    toolBar->setWindowTitle("Circles");
+    toolBar->addAction("Circle");
+    toolBar->addAction("Thre-point Circle");
+    toolBar->addAction("Circle using Coords");
+    toolBar->addAction("Tri-Tangent Circle");
+    toolBar->addAction("Three point arc");
+    toolBar->addAction("Three point arc w/starting limits");
+    toolBar->addAction("Arc");
+}
+
+void MainWindow::sketcherWorkspaceDimensionsToolBar()
+{
+    /*
+    SKETCHER WORKSPACE toolbar
+    This widget is a moveable toolbar button that the user can click and drag to different places aroun the screen
+    */
+    QToolBar *toolBar = addToolBar("Main");
+    toolBar->setWindowTitle("Dimensions");
+    toolBar->addAction("Dimensions");
 }
 
 void MainWindow::createStatusBar()
