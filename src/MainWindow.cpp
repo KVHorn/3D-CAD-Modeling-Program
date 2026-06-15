@@ -120,10 +120,10 @@ void MainWindow::createStatusBar()
     statusBar()->showMessage("Ready");
 }
 
-void MainWindow::setWorkspace(Workspace *ws)
-{
-    if (m_active)
-        m_active->deactivate();
-    m_active = ws;
-    m_active->activate();
-}
+// void MainWindow::setWorkspace(Workspace *ws)
+// {
+//     if (m_active)
+//         m_active->deactivate();
+//     m_active = ws;
+//     m_active->activate();
+// }
