@@ -22,3 +22,8 @@ WorkspaceType Document::currentWorkspace() const
 {
     return m_workspace;
 }
+
+void Document::setCurrentWorkspace(WorkspaceType type)
+{
+    m_workspace = type;
+}
