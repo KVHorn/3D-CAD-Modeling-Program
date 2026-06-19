@@ -27,4 +27,3 @@ private:
     Handle(AIS_InteractiveContext) m_context;
     bool m_initialized = false;
 };
-x
