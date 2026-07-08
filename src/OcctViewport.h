@@ -1,3 +1,4 @@
+// -------------------------------------------------------------------------------------------------
 #pragma once
 
 #include <QWidget>
@@ -7,6 +8,7 @@
 #include <V3d_View.hxx>
 #include <AIS_InteractiveContext.hxx>
 
+// -------------------------------------------------------------------------------------------------
 class OcctViewport : public QWidget
 {
     Q_OBJECT
