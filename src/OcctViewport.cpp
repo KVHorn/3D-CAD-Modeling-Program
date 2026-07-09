@@ -51,4 +51,17 @@ void OcctViewport::initViewer()
     m_viewer->SetLightOn();
 
     m_view = m_viewer->CreateView();
+
+    Handle(WNT_Window) window = new WNT_Window((Aspect_Handle)winId());
+    m_view->SetWindow(window);
+    if (!window->IsMapped())
+        window->Map();
+
+    m_context = new AIS_InteractiveContext(m_viewer);
+    m_view->SetBackgroundColor(Quantity_NOC_GRAY30);
+    m_view->MustBeResized();
+
+    m_initialized = true;
 }
+
+// ---------------------------------------------------------------------
