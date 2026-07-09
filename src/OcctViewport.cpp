@@ -6,7 +6,7 @@
 #include <V3d_View.hxx>
 #include <AIS_InteractiveContext.hxx>
 #include <WNT_Window.hxx>
-
+#include <QDebug>
 #include <QResizeEvent>
 
 #include <QPalette>
@@ -82,6 +82,8 @@ void OcctViewport::initViewer()
 // ---------------------------------------------------------------------
 void OcctViewport::paintEvent(QPaintEvent *)
 {
+    qDebug() << "paintEvent fired, m_initialized =" << m_initialized;
+
     // ensure the viewer is up (first paint triggers init)
     initViewer();     // Make sure the Occt viewer exists.
     m_view->Redraw(); // Tell Occt  to render the scene now.
