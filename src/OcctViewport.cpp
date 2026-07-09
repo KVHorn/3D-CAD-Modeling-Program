@@ -11,7 +11,27 @@
 
 #include <QPalette>
 #include <QColor>
-// ---------------------------------------------------------------------
+
+/* ---------------------------------------------------------------------
+Notes:
+
+The WA_PaintOnScreen attribute plus the paintEngine() returning nullptr are a matched pair. Together they tell Qt: "Dont manage this widget's pixels, someone else owns the surface."
+    - Without both, Qt's own paint engine fights OCCT's OpenGL context and can result in flicker or a black rectangle
+
+
+(Aspect_Handle)winId() is the actual bridge between the two worlds.
+    - winId() hands you the native Win32 HWND for this widget.
+    - WNT_Window wraps that handle so OCCT can render into it.
+    ***** This is the one line that will most likeyl need a tweak if there are any errors returned by the compiler. If there are errors, try: reinterpret_cast<Aspect_Handle>(winId())
+
+MustBeResized() in resizeEvent is what keeps the view's aspect ratio correct when the window changes size.
+
+The initViewer() call living inside paintEvent(rather than the constructor) is deliberate: the native window handle from winId() isn't reliable until the widget is actually shown so you must defer setup to the first paint.
+
+
+
+
+ ---------------------------------------------------------------------*/
 OcctViewport::OcctViewport(QWidget *parent)
     : QWidget(parent), m_initialized(false)
 {
