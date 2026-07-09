@@ -79,7 +79,8 @@ void OcctViewport::initViewer()
         window->Map();
 
     m_context = new AIS_InteractiveContext(m_viewer);
-    m_view->SetBackgroundColor(Quantity_NOC_GRAY30);
+    // m_view->SetBackgroundColor(Quantity_NOC_GRAY30);
+    m_view->SetBackgroundColor(Quantity_Color(0.0, 0.098, 0.333, Quantity_TOC_RGB));
     m_view->MustBeResized();
 
     m_initialized = true;
