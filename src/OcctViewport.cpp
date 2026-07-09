@@ -65,3 +65,8 @@ void OcctViewport::initViewer()
 }
 
 // ---------------------------------------------------------------------
+void OcctViewport::paintEvent(QPaintEvent *)
+{
+    if (m_initialized && !m_view.IsNull())
+        m_view->MustBeResized();
+}
