@@ -77,6 +77,7 @@ void OcctViewport::initViewer()
     m_view->MustBeResized();
 
     m_initialized = true;
+    qDebug() << "initViewer completed. view null?" << m_view.IsNull();
 }
 
 // ---------------------------------------------------------------------
