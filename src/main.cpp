@@ -7,8 +7,23 @@
 
 #include "Geometry.h"
 
+#ifdef _DEBUG
+#include <windows.h>
+#include <cstdio>
+#include <QDebug>
+#endif
+
 int main(int argc, char *argv[])
 {
+#ifdef _DEBUG
+    AllocConsole();
+    freopen("CONOUT$", "w", stdout);
+    freopen("CONOUT$", "w", stderr);
+    qInstallMessageHandler([](QtMsgType, const QMessageLogContext &, const QString &msg)
+                           {
+            fprintf(stdout, "%s\n", msg.toLocal8Bit().constData());
+            fflush(stdout); });
+#endif
     /*
     QApplication app(argc, argv)
     Enters the main event loop and waits until exit() is called, then returns the value that was set to exit(), which is 0 if exit is called via quit().
