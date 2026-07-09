@@ -1,3 +1,7 @@
+#include <windows.h>
+#include <cstdio>
+#include <QDebug>
+
 #include <QApplication>
 #include <QIcon>
 #include <QActionEvent>
