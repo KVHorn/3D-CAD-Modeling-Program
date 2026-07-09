@@ -90,6 +90,17 @@ void OcctViewport::paintEvent(QPaintEvent *)
 // ---------------------------------------------------------------------
 void OcctViewport::resizeEvent(QResizeEvent *)
 {
+    /*
+    This if statement is a safety guard. A resize can fire before the first paint has run initViewer, so m_view might not exist.
+    This checks for two things:
+    - That init has happened (m_initialized)
+    - That the handle actually points at something (!m_view.IsNull()) where .IsNull() is the OCCT Handle way of asking "is this pointing at nothing?", like a null-pointer check.
+    NOTE: Both must be true to continue.
+
+
+    m_view->MustBeResized() is OCCT's 're-read your window's dimension's and adjust'. This keeps the viewport matched to the widgets new size.
+
+    */
     if (m_initialized && !m_view.IsNull())
         m_view->MustBeResized();
 }
