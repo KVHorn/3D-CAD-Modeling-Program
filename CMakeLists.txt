@@ -30,7 +30,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 target_link_libraries(${PROJECT_NAME} PRIVATE
     Qt6::Widgets
-    ${OpenCASCADE_LIBRARIES}
+    ${OpenCASCADE_LIBRARIES} 
 )
 
 # Deploy Qt runtime DLLs next to the executable (Windows)
