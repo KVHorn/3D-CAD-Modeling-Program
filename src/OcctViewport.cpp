@@ -48,6 +48,7 @@ OcctViewport::OcctViewport(QWidget *parent)
     setAttribute(Qt::WA_OpaquePaintEvent);
     setFocusPolicy(Qt::StrongFocus);
     setMouseTracking(true);
+    setMinimumSize(400, 300);
 }
 
 // ---------------------------------------------------------------------
