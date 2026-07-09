@@ -82,6 +82,14 @@ void OcctViewport::initViewer()
 // ---------------------------------------------------------------------
 void OcctViewport::paintEvent(QPaintEvent *)
 {
+    // ensure the viewer is up (first paint triggers init)
+    initViewer();     // Make sure the Occt viewer exists.
+    m_view->Redraw(); // Tell Occt  to render the scene now.
+}
+
+// ---------------------------------------------------------------------
+void OcctViewport::resizeEvent(QResizeEvent *)
+{
     if (m_initialized && !m_view.IsNull())
         m_view->MustBeResized();
 }
