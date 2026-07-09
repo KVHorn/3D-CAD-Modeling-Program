@@ -35,13 +35,6 @@ The initViewer() call living inside paintEvent(rather than the constructor) is d
 OcctViewport::OcctViewport(QWidget *parent)
     : QWidget(parent), m_initialized(false)
 {
-    //     // This is the viewport for displaying the workspace and the sketches, shapes, models, etc. that the user will be working with.
-    //     setAutoFillBackground(true);
-    //     QPalette pal = palette();
-    //     pal.setColor(QPalette::Window, QColor(0, 25, 85)); // Dark Blue
-    //     setPalette(pal);
-    //     setMinimumSize(400, 300);
-    // }
 
     setAttribute(Qt::WA_PaintOnScreen);
     setAttribute(Qt::WA_NoSystemBackground);
