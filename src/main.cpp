@@ -11,11 +11,6 @@
 
 #include "Geometry.h"
 
-#ifdef _DEBUG
-#include <windows.h>
-#include <cstdio>
-#include <QDebug>
-#endif
 
 int main(int argc, char *argv[])
 {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include <TopoDS_Shape.hxx>
 #include <string>
+#include <TopoDS_Shape.hxx>
 
 // Infinity Creator — geometry layer.
 // This is the ONLY place in the codebase that talks to OpenCASCADE.
