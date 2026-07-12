@@ -4,29 +4,31 @@
 #include <QDialog>
 #include <QVector>
 
+#include "model/Units.h"
+
 class QLineEdit;
 class QComboBox;
 class QDoubleSpinBox;
 class Feature;
 
-// The equivalent of CATIA's feature definition dialogs ("Pad Definition",
-// "Hole Definition"...). Built generically from a feature's parameter list:
-// name field, boolean-operation combo (when the feature supports it), and
-// one spin box per parameter. Values are written back only on OK.
+// CATIA-style feature definition dialog, built generically from a feature's
+// parameter list. Lengths are displayed/entered in the document's effective
+// unit and stored in mm; angles stay in degrees. Values write back on OK.
 class ParameterDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit ParameterDialog(Feature* feature, QWidget* parent = nullptr);
+    ParameterDialog(Feature* feature, Unit displayUnit, QWidget* parent = nullptr);
 
     void accept() override;
 
 private:
     Feature* m_feature;
+    Unit m_displayUnit;
     QLineEdit* m_nameEdit;
     QComboBox* m_booleanCombo = nullptr;
-    QVector<QDoubleSpinBox*> m_spinBoxes;  // parallel to feature->parameters()
+    QVector<QDoubleSpinBox*> m_spinBoxes;
 };
 
 #endif // PARAMETERDIALOG_H

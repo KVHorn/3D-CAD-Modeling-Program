@@ -1,4 +1,6 @@
 #include "app/MainWindow.h"
+#include "app/AppSettings.h"
+#include "ui/FirstRunDialog.h"
 
 #include <QApplication>
 #include <QFile>
@@ -44,6 +46,14 @@ int main(int argc, char* argv[])
     app.setOrganizationName(QStringLiteral("KVHorn"));
 
     qDebug() << "=== Infinity Creator starting ===";
+
+    // First launch: quick setup wizard for default units, export quality,
+    // and author name. Everything is editable later in Edit > Options.
+    if (!AppSettings::instance().firstRunDone())
+    {
+        FirstRunDialog setup;
+        setup.exec();
+    }
 
     MainWindow window;
     window.show();

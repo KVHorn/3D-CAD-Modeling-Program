@@ -2,6 +2,7 @@
 #include "app/MainWindow.h"
 #include "app/Document.h"
 #include "app/FeatureTreeDock.h"
+#include "app/RecentFiles.h"
 #include "model/FeatureFactory.h"
 #include "workspaces/WorkspaceType.h"
 
@@ -41,25 +42,48 @@ void MenuBuilder::buildFileMenu()
     newAction->setShortcut(QKeySequence::New);
     connect(newAction, &QAction::triggered, m_mainWindow, &MainWindow::newPart);
 
-    addPlanned(menu, QStringLiteral("&Open..."), 3);
-    addPlanned(menu, QStringLiteral("&Close"), 3);
+    QAction* openAction = menu->addAction(QStringLiteral("&Open..."));
+    openAction->setShortcut(QKeySequence::Open);
+    connect(openAction, &QAction::triggered, m_mainWindow, &MainWindow::openFile);
+
+    QAction* closeAction = menu->addAction(QStringLiteral("&Close"));
+    closeAction->setShortcut(QKeySequence::Close);
+    connect(closeAction, &QAction::triggered, m_mainWindow, &MainWindow::closeActiveDocument);
+
     menu->addSeparator();
-    addPlanned(menu, QStringLiteral("&Save"), 3);
-    addPlanned(menu, QStringLiteral("Save &As..."), 3);
-    addPlanned(menu, QStringLiteral("Save As Copy..."), 3);
-    addPlanned(menu, QStringLiteral("Save A&ll"), 3);
+
+    QAction* saveAction = menu->addAction(QStringLiteral("&Save"));
+    saveAction->setShortcut(QKeySequence::Save);
+    connect(saveAction, &QAction::triggered, m_mainWindow, &MainWindow::saveActiveDocument);
+
+    QAction* saveAsAction = menu->addAction(QStringLiteral("Save &As..."));
+    saveAsAction->setShortcut(QKeySequence::SaveAs);
+    connect(saveAsAction, &QAction::triggered, m_mainWindow, &MainWindow::saveActiveDocumentAs);
+
+    QAction* saveCopyAction = menu->addAction(QStringLiteral("Save As Copy..."));
+    connect(saveCopyAction, &QAction::triggered, m_mainWindow, &MainWindow::saveActiveDocumentAsCopy);
+
+    QAction* saveAllAction = menu->addAction(QStringLiteral("Save A&ll"));
+    connect(saveAllAction, &QAction::triggered, m_mainWindow, &MainWindow::saveAll);
+
     menu->addSeparator();
 
     QAction* exportStlAction = menu->addAction(QStringLiteral("&Export STL..."));
     connect(exportStlAction, &QAction::triggered, m_mainWindow, &MainWindow::exportStl);
-    addPlanned(menu, QStringLiteral("Export 3MF..."), 3);
+
+    QAction* export3mfAction = menu->addAction(QStringLiteral("Export &3MF..."));
+    connect(export3mfAction, &QAction::triggered, m_mainWindow, &MainWindow::export3mf);
+
     menu->addSeparator();
 
     addPlanned(menu, QStringLiteral("&Print..."), 12);
     addPlanned(menu, QStringLiteral("Printer Setup..."), 12);
     menu->addSeparator();
-    addPlanned(menu, QStringLiteral("Document Properties..."), 3);
-    addPlanned(menu, QStringLiteral("Document History"), 3);
+
+    QAction* docPropsAction = menu->addAction(QStringLiteral("Document Properties..."));
+    connect(docPropsAction, &QAction::triggered, m_mainWindow, &MainWindow::showDocumentProperties);
+
+    menu->addMenu(m_mainWindow->recentFiles()->menu());
     menu->addSeparator();
 
     QAction* exitAction = menu->addAction(QStringLiteral("E&xit"));
@@ -103,7 +127,9 @@ void MenuBuilder::buildEditMenu()
     connect(propertiesAction, &QAction::triggered, m_mainWindow, &MainWindow::editSelectedFeature);
 
     menu->addSeparator();
-    addPlanned(menu, QStringLiteral("&Options..."), 3);
+
+    QAction* optionsAction = menu->addAction(QStringLiteral("&Options..."));
+    connect(optionsAction, &QAction::triggered, m_mainWindow, &MainWindow::showOptions);
 }
 
 void MenuBuilder::buildViewMenu()

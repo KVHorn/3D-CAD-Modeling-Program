@@ -1,0 +1,14 @@
+# Build output
+build/
+out/
+
+# Logs
+debug.log
+
+# IDE / editor
+.vs/
+.vscode/settings.json
+*.user
+
+# CMake local overrides
+CMakeUserPresets.json

@@ -48,6 +48,13 @@ void PartModel::removeFeature(Feature* feature)
     }
 }
 
+void PartModel::setFeatures(const QList<Feature*>& features)
+{
+    qDeleteAll(m_features);
+    m_features = features;
+    recompute();
+}
+
 bool PartModel::recompute()
 {
     m_result.Nullify();

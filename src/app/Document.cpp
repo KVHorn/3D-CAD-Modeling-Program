@@ -5,15 +5,14 @@
 #include "model/FeatureFactory.h"
 #include "app/UndoStack.h"
 #include "ui/ParameterDialog.h"
+#include "io/StlExporter.h"
+#include "io/ThreeMfExporter.h"
 
 #include <QVBoxLayout>
 #include <QUndoStack>
 #include <QMessageBox>
+#include <QCloseEvent>
 #include <QDebug>
-
-#include <BRepMesh_IncrementalMesh.hxx>
-#include <StlAPI_Writer.hxx>
-#include <Standard_Failure.hxx>
 
 Document::Document(const QString& name, QWidget* parent)
     : QWidget(parent)
@@ -31,6 +30,66 @@ Document::Document(const QString& name, QWidget* parent)
     setWindowTitle(m_name);
 
     connect(m_model, &PartModel::recomputed, this, &Document::refreshDisplay);
+    connect(m_undoStack, &QUndoStack::cleanChanged, this,
+            [this](bool) { emit dirtyStateChanged(); });
+}
+
+void Document::setName(const QString& name)
+{
+    m_name = name;
+    setWindowTitle(name);
+}
+
+bool Document::isDirty() const
+{
+    return !m_undoStack->isClean() || m_settingsDirty;
+}
+
+void Document::markSettingsDirty()
+{
+    m_settingsDirty = true;
+    emit dirtyStateChanged();
+}
+
+void Document::markSaved()
+{
+    m_undoStack->setClean();
+    m_settingsDirty = false;
+    emit dirtyStateChanged();
+}
+
+void Document::setSaveHandler(std::function<bool(Document*)> handler)
+{
+    m_saveHandler = std::move(handler);
+}
+
+void Document::closeEvent(QCloseEvent* event)
+{
+    if (!isDirty())
+    {
+        event->accept();
+        return;
+    }
+
+    const auto choice = QMessageBox::warning(this, QStringLiteral("Unsaved changes"),
+        QStringLiteral("\"%1\" has unsaved changes.\n\nSave before closing?").arg(m_name),
+        QMessageBox::Save | QMessageBox::Discard | QMessageBox::Cancel,
+        QMessageBox::Save);
+
+    if (choice == QMessageBox::Cancel)
+    {
+        event->ignore();
+        return;
+    }
+    if (choice == QMessageBox::Save)
+    {
+        if (!m_saveHandler || !m_saveHandler(this))
+        {
+            event->ignore();  // save cancelled or failed - keep the window
+            return;
+        }
+    }
+    event->accept();
 }
 
 bool Document::isEmpty() const
@@ -52,10 +111,10 @@ void Document::insertFeatureInteractive(const QString& typeName, QWidget* dialog
         return;
     }
 
-    // Sensible default: the first feature starts a body, later ones fuse.
     feature->booleanOp = isEmpty() ? BooleanOp::NewBody : BooleanOp::Add;
 
-    ParameterDialog dialog(feature, dialogParent ? dialogParent : this);
+    ParameterDialog dialog(feature, m_settings.effectiveUnit(),
+                           dialogParent ? dialogParent : this);
     if (dialog.exec() != QDialog::Accepted)
     {
         delete feature;
@@ -64,8 +123,6 @@ void Document::insertFeatureInteractive(const QString& typeName, QWidget* dialog
 
     m_undoStack->push(new AddFeatureCommand(m_model, feature));
 
-    // Failed features stay in the tree, marked red (CATIA behavior) -
-    // the user edits, deletes, or undoes. Just say why it failed.
     if (m_model->failedFeature() == feature)
     {
         QMessageBox::warning(this, QStringLiteral("Feature failed"),
@@ -80,14 +137,12 @@ void Document::editFeature(Feature* feature)
 {
     const QJsonObject before = feature->toJson();
 
-    ParameterDialog dialog(feature, this);
+    ParameterDialog dialog(feature, m_settings.effectiveUnit(), this);
     if (dialog.exec() != QDialog::Accepted)
-        return;  // dialog writes only on OK, so nothing changed
+        return;
 
     const QJsonObject after = feature->toJson();
 
-    // Restore, then let the command apply - so redo/undo are symmetric and
-    // the recompute happens exactly once, inside the command.
     feature->fromJson(before);
     m_undoStack->push(new ChangeFeatureCommand(m_model, feature, before, after,
         QStringLiteral("Edit %1").arg(feature->name)));
@@ -117,25 +172,12 @@ void Document::refreshDisplay()
 
 bool Document::exportStl(const QString& filePath) const
 {
-    if (!hasShape())
-    {
-        qWarning() << "exportStl: document" << m_name << "has no shape";
-        return false;
-    }
+    return StlExporter::exportShape(m_model->resultShape(), filePath,
+                                    m_settings.effectiveMeshDeflection());
+}
 
-    try
-    {
-        // STL is triangles; the exact B-rep must be tessellated first.
-        BRepMesh_IncrementalMesh mesh(m_model->resultShape(), 0.1);
-
-        StlAPI_Writer writer;
-        const bool ok = writer.Write(m_model->resultShape(), filePath.toStdString().c_str());
-        qDebug() << "exportStl to" << filePath << "->" << (ok ? "ok" : "FAILED");
-        return ok;
-    }
-    catch (const Standard_Failure& failure)
-    {
-        qCritical() << "OCCT exception in exportStl:" << failure.GetMessageString();
-        return false;
-    }
+bool Document::export3mf(const QString& filePath) const
+{
+    return ThreeMfExporter::exportShape(m_model->resultShape(), filePath,
+                                        m_settings.effectiveMeshDeflection(), m_name);
 }

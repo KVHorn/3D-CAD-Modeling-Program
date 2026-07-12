@@ -1,5 +1,6 @@
 #include "ui/ParameterDialog.h"
 #include "model/Feature.h"
+#include "model/Units.h"
 
 #include <QVBoxLayout>
 #include <QFormLayout>
@@ -8,9 +9,10 @@
 #include <QDoubleSpinBox>
 #include <QDialogButtonBox>
 
-ParameterDialog::ParameterDialog(Feature* feature, QWidget* parent)
+ParameterDialog::ParameterDialog(Feature* feature, Unit displayUnit, QWidget* parent)
     : QDialog(parent)
     , m_feature(feature)
+    , m_displayUnit(displayUnit)
 {
     setWindowTitle(feature->typeName() + QStringLiteral(" Definition"));
     setModal(true);
@@ -38,11 +40,24 @@ ParameterDialog::ParameterDialog(Feature* feature, QWidget* parent)
     {
         auto* spin = new QDoubleSpinBox(this);
         spin->setRange(-100000.0, 100000.0);
-        spin->setDecimals(3);
-        spin->setValue(p.value);
+
+        // Angles stay in degrees regardless of unit setting; lengths are
+        // stored in mm and displayed/entered in the effective unit.
         const bool isAngle = p.key.startsWith(QStringLiteral("r"))
                              && p.label.contains(QStringLiteral("deg"));
-        spin->setSuffix(isAngle ? QStringLiteral(" deg") : QStringLiteral(" mm"));
+        if (isAngle)
+        {
+            spin->setDecimals(2);
+            spin->setSuffix(QStringLiteral(" deg"));
+            spin->setValue(p.value);
+        }
+        else
+        {
+            spin->setDecimals(Units::decimals(m_displayUnit));
+            spin->setSuffix(Units::suffix(m_displayUnit));
+            spin->setValue(Units::toDisplay(p.value, m_displayUnit));
+        }
+
         form->addRow(p.label, spin);
         m_spinBoxes.append(spin);
     }
@@ -55,8 +70,7 @@ ParameterDialog::ParameterDialog(Feature* feature, QWidget* parent)
 
 void ParameterDialog::accept()
 {
-    // Write values back only on OK - Cancel leaves the feature untouched,
-    // which matters when this dialog is reused for editing in Phase 2.
+    // Write values back only on OK - Cancel leaves the feature untouched.
     m_feature->name = m_nameEdit->text().trimmed().isEmpty()
         ? m_feature->typeName() : m_nameEdit->text().trimmed();
 
@@ -65,7 +79,13 @@ void ParameterDialog::accept()
 
     QVector<FeatureParameter>& params = m_feature->parameters();
     for (int i = 0; i < params.size() && i < m_spinBoxes.size(); ++i)
-        params[i].value = m_spinBoxes[i]->value();
+    {
+        const bool isAngle = params[i].key.startsWith(QStringLiteral("r"))
+                             && params[i].label.contains(QStringLiteral("deg"));
+        params[i].value = isAngle
+            ? m_spinBoxes[i]->value()
+            : Units::fromDisplay(m_spinBoxes[i]->value(), m_displayUnit);
+    }
 
     QDialog::accept();
 }

@@ -35,6 +35,10 @@ public:
     // Remove AND delete, then recompute.
     void removeFeature(Feature* feature);
 
+    // Replace the entire history (takes ownership of the new features,
+    // deletes the old ones) and recompute once. Used by file loading.
+    void setFeatures(const QList<Feature*>& features);
+
     const QList<Feature*>& features() const { return m_features; }
     int indexOf(Feature* feature) const { return m_features.indexOf(feature); }
     bool isEmpty() const { return m_features.isEmpty(); }
