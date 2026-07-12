@@ -28,6 +28,10 @@ add_executable(${PROJECT_NAME} WIN32
     src/app/MenuBuilder.h
     src/app/UndoStack.cpp
     src/app/UndoStack.h
+    src/app/AppSettings.cpp
+    src/app/AppSettings.h
+    src/app/RecentFiles.cpp
+    src/app/RecentFiles.h
     src/workspaces/WorkspaceType.h
     src/workspaces/Workspace.cpp
     src/workspaces/Workspace.h
@@ -49,8 +53,25 @@ add_executable(${PROJECT_NAME} WIN32
     src/model/FeatureFactory.h
     src/model/DressUpFeatures.cpp
     src/model/DressUpFeatures.h
+    src/model/DocumentSettings.cpp
+    src/model/DocumentSettings.h
+    src/model/Units.h
     src/ui/ParameterDialog.cpp
     src/ui/ParameterDialog.h
+    src/ui/OptionsDialog.cpp
+    src/ui/OptionsDialog.h
+    src/ui/DocumentPropertiesDialog.cpp
+    src/ui/DocumentPropertiesDialog.h
+    src/ui/FirstRunDialog.cpp
+    src/ui/FirstRunDialog.h
+    src/io/InfinityFormat.cpp
+    src/io/InfinityFormat.h
+    src/io/MeshUtils.cpp
+    src/io/MeshUtils.h
+    src/io/StlExporter.cpp
+    src/io/StlExporter.h
+    src/io/ThreeMfExporter.cpp
+    src/io/ThreeMfExporter.h
 )
 
 # So includes read as "model/Feature.h", "app/MainWindow.h", etc.
