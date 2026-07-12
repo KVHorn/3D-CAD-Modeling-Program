@@ -1,0 +1,79 @@
+Circle:
+- Circle
+- Three-point circle
+- Circle using coordinates
+- Tri-Tangen circle
+- Three point arc
+- Three point arc starting with limits
+- Arc
+
+Conic:
+- Ellipse
+- Prabola by focus
+- Hyperbola by focus
+- Conic
+
+Constraint:
+- Constraints defined by dialog box
+- Constraint
+- Fix together
+- Animate constraint
+- Edit Muilti-constraint
+
+Line:
+- Line
+- Infinite line
+- Bi- Tangent line
+- Bisecting line
+- Line normal to curve
+
+Predefined Profile:
+- Rectangle
+- Oriented Rectangle
+- Parallelogram
+- Elongated Hole
+- Cylindrical elongated hole
+- Keyhole profile
+- Hexagon
+- Centered rectangle
+- Centered parallelogram
+
+Point:
+	- Point by clicking
+- Point by using coordinates
+- Equidistant point
+- Intersection point
+- Projection point
+
+Relimitations:
+- Trim
+- Break
+- Quick Trim*
+- Close
+- Complement
+
+Transformations:
+- Mirror
+- Symmetry
+- Translate
+- Rotate
+- Scale
+- Offset
+
+View:
+- FLy mode
+- Fit all in
+- Pan
+- Rotate
+- Zoom IN/OUT
+- Normal view
+- Create multi-view
+- Isometric view
+- Shading with edges
+- Hide/Show
+- Swap visible space
+
+Other sketcher tools:
+- Dimension(distance, length, offset, radius, diameter, angle, etc.)
+- Mirror
+- Pattern

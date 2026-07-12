@@ -1,48 +1,54 @@
-#include <windows.h>
-#include <cstdio>
-#include <QDebug>
+#include "app/MainWindow.h"
 
 #include <QApplication>
-#include <QIcon>
-#include <QActionEvent>
-#include <QMessageBox>
-#include "MainWindow.h"
-#include "OcctViewport.h"
+#include <QFile>
+#include <QTextStream>
+#include <QDateTime>
+#include <QMutex>
 
-#include "Geometry.h"
-
-
-int main(int argc, char *argv[])
+// File-based logging. The exe is a GUI-subsystem app (WIN32 in CMake), so
+// there is no console; every qDebug/qWarning/qCritical line is appended to
+// debug.log next to the executable. Tail it live in PowerShell:
+//   Get-Content debug.log -Wait
+static void fileMessageHandler(QtMsgType type, const QMessageLogContext& /*context*/,
+                               const QString& msg)
 {
-    AllocConsole();
-    freopen("CONOUT$", "w", stdout);
-    freopen("CONOUT$", "w", stderr);
-    qInstallMessageHandler([](QtMsgType, const QMessageLogContext &, const QString &msg)
-                           {
-            fprintf(stdout, "%s\n", msg.toLocal8Bit().constData());
-            fflush(stdout); });
-    /*
-    QApplication app(argc, argv)
-    Enters the main event loop and waits until exit() is called, then returns the value that was set to exit(), which is 0 if exit is called via quit().
-    */
+    static QMutex mutex;
+    QMutexLocker locker(&mutex);
+
+    QFile logFile(QStringLiteral("debug.log"));
+    if (!logFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+        return;
+
+    const char* level = "DEBUG";
+    switch (type)
+    {
+        case QtDebugMsg:    level = "DEBUG";    break;
+        case QtInfoMsg:     level = "INFO";     break;
+        case QtWarningMsg:  level = "WARNING";  break;
+        case QtCriticalMsg: level = "CRITICAL"; break;
+        case QtFatalMsg:    level = "FATAL";    break;
+    }
+
+    QTextStream stream(&logFile);
+    stream << QDateTime::currentDateTime().toString(QStringLiteral("yyyy-MM-dd hh:mm:ss.zzz"))
+           << " [" << level << "] " << msg << "\n";
+}
+
+int main(int argc, char* argv[])
+{
+    qInstallMessageHandler(fileMessageHandler);
+
     QApplication app(argc, argv);
-    app.setApplicationName("Infinity Creator TEST");
-    app.setWindowIcon(QIcon(":/infinity_creator.ico"));
+    app.setApplicationName(QStringLiteral("Infinity Creator"));
+    app.setOrganizationName(QStringLiteral("KVHorn"));
+
+    qDebug() << "=== Infinity Creator starting ===";
 
     MainWindow window;
-    window.setWindowTitle("Infinity Creator TEST");
     window.show();
 
-    // --- TRACER BULLET ---------------------------------------------------
-    // Build a 50 x 30 x 10 box by extruding a rectangle, then write it to STL.
-    // Proves the whole pipeline: OCCT solid -> tessellate -> printable file.
-    TopoDS_Shape solid = Geometry::extrudeRectangle(50.0, 30.0, 10.0);
-    bool ok = Geometry::exportStl(solid, "output/infinity_test_box.stl");
-
-    QMessageBox::information(&window, "Tracer Bullet",
-                             ok ? "Exported a 50x30x10 box to output/infinity_test_box.stl\nOpen it in your slicer!"
-                                : "STL export failed.");
-    // ---------------------------------------------------------------------
-
-    return app.exec();
+    const int result = app.exec();
+    qDebug() << "=== Infinity Creator exiting with code" << result << "===";
+    return result;
 }

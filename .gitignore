@@ -1,17 +1,14 @@
 # Build output
 build/
+out/
 
-# Generated exports
-output/
-*.stl
+# Logs
+debug.log
 
-# Notes and Documentation
-documentation/
-*.pdf
+# IDE / editor
+.vs/
+.vscode/settings.json
+*.user
 
-# VS Code
-.vscode/
-
-# Windows
-Thumbs.db
-Desktop.ini
+# CMake local overrides
+CMakeUserPresets.json

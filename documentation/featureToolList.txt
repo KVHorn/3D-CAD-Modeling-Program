@@ -1,0 +1,35 @@
+Dress-Up Features:
+
+    Fillet
+    Chamger
+    Draft shell
+    Thickness
+
+Pad:
+
+    Pad
+    Drafted filleted pad
+    Multi-pad
+
+Sketch-based Features:
+
+    Pad
+    Pocket
+    Shaft
+    Slot
+    Hole
+    Groove
+
+Reference Elements:
+
+    Point
+    Line
+    Plane
+
+Transformation Features:
+
+    Translation
+    Rotation
+    Mirror
+    Pattern
+    Scale
